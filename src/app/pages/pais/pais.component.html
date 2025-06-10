@@ -1,0 +1,39 @@
+<h1> {{ this.paisesService.pais()?.name?.common }} </h1>
+<hr>
+
+@if(this.paisesService.pais()){
+<div class="row animate__animated animate__fadeIn animate__fast">
+    <div class="col-7">
+
+        <h5>Datos</h5>
+
+        <ul class="list-group">
+            <li class="list-group-item">Poblacion: {{ this.paisesService.pais()?.population| number }}</li>
+            <li class="list-group-item">Área: {{ this.paisesService.pais()?.area | number }}</li>
+            <li class="list-group-item">Código Área: {{ this.paisesService.pais()?.cca3}}</li>
+            <li class="list-group-item">TimeZone: {{ this.paisesService.pais()?.timezones }}</li>
+        </ul>
+
+        <hr>
+        <h5>Fronteras</h5>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let bordes of this.paisesService.pais()?.borders">
+                {{ bordes }}
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="col-5">
+        <h5>Bandera</h5>
+
+        <p class="bandera">{{ this.paisesService.pais()?.flag}}</p>
+        <br>
+        <br>
+        <a class="btn btn-danger btn-block" routerLink="/">
+            Regresar
+        </a>
+
+    </div>
+</div>
+}

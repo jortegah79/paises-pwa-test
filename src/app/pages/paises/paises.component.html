@@ -1,0 +1,12 @@
+<h1>Paises</h1>
+<hr>
+
+<ul class="list-group">
+    @for (pais of this.paisesService.paises(); track $index) {
+    <a [routerLink]="['/pais/',pais.cca3]" routerlink='active'
+        class="list-group-item list-group-item-action animate__animated animate__fadeIn animatefast">
+        {{pais.name.common }}
+    </a>
+    }
+
+</ul>
